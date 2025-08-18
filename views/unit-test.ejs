@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Unit Test</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <ul class="nav-bar">
+        <a class="nav-item active" href="/unit-test">Unit Test</a>
+        <a class="nav-item" href="/integration-test">Integration Test</a>
+      </ul>
+    </header>
+    <main>
+      <section class="unit-test-form">
+        <h4 class="title">Unit Test</h4>
+        <form action="/unit-test" method="POST">
+          <!--for function description-->
+          <div>
+            <label for="function"
+              >The actual function or method complete code</label
+            >
+            <textarea name="function" id="function" rows="20"></textarea>
+          </div>
+          <button class="submit-btn" type="submit">Get Unit Tests</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
