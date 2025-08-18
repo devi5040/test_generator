@@ -8,7 +8,7 @@
 // api/index.js
 const express = require("express");
 
-const routes = require("./routes/generateTest");
+const routes = require("../routes/generateTest");
 const path = require("path");
 const bodyParser = require("body-parser");
 
