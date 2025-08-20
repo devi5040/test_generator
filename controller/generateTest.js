@@ -10,11 +10,10 @@ exports.generateUnitTest = async (req, res, next) => {
   const testFramework = "jest";
   const prompt = `You are an expert JavaScript developer and Jest testing engineer. 
 I will provide a function or module. Generate a **complete Jest test suite** in a robust, error-proof style:
-
-1. Mock all external dependencies using \`jest.mock()\` at the top level outside any function's describe(Note: You need to mock all the functionalities of the external dependencies for example db retrieval functions, aws s3 configs, etc).
+1. Mock all external dependencies using \`jest.mock()\` at the top level outside any function's describe(Note: You need to mock all the functionalities of the external dependencies for example db retrieval functions, aws s3 configs, etc). for example if you are mocking a model then you should mock the functions used there like Model.create(), model.find(),etc.
 2. then import the function or provide a placeholder to do that.
 3. Start describing the tests for functions one by one using describe().
-4. Use \`beforeAll\`, \`beforeEach\`, \`afterAll\` to set up and clean environment variables, mocks, or any global state.
+4. Use \`beforeAll\`, \`beforeEach\`, \`afterAll\` to set up and clean environment variables, mocks, or any global state, Use whenever needed do not overdo it. Do not clear mocks which are not created first create those mock functions and then clear that.
 5. Handle async functions properly using \`async/await\` and \`mockResolvedValue\` / \`mockRejectedValue\`.
 6. Include tests for:
    - Normal successful execution
@@ -27,14 +26,13 @@ I will provide a function or module. Generate a **complete Jest test suite** in 
 9. Use proper \`expect\` statements for return values, called arguments, and behavior.
 10. Restore any spies or mocks after usage.
 
-Ignore the comments and just focus on the function code.
-Here is the code to test:${functionCode}.
+Here is the code to generate test:${functionCode}.
 
 Example test file:
 const mockS3 = {
     getSignedUrlPromise: jest.fn(),
   };
-  jest.mock(<mock code goes here>);
+  jest.mock(<mock code goes here, import and functions that needs to be mocked.>);
   <-- import your functions here -->
   describe("functionName",{
   <-- test scenarios -->
