@@ -29,14 +29,27 @@ I will provide a function or module. Generate a **complete Jest test suite** in 
 Here is the code to generate test:${functionCode}.
 
 Example test file:
-const mockS3 = {
-    getSignedUrlPromise: jest.fn(),
-  };
-  jest.mock(<mock code goes here, import and functions that needs to be mocked.>);
-  <-- import your functions here -->
-  describe("functionName",{
-  <-- test scenarios -->
-  })`;
+'''const {
+  createUser,
+  getUserByMobileNumber,
+} = require("../../services/user.service");
+const { User } = require("../../models");
+const logger = require("../../utils/logger");
+
+// Mock logger
+jest.mock("../../utils/logger", () => ({
+  info: jest.fn(),
+  error: jest.fn(),
+}));
+
+// Mock User model
+jest.mock("../../models", () => ({
+  User: {
+    findAll: jest.fn(),
+    create: jest.fn(),
+  },
+}));
+describe tests below-'''`;
 
   if (!functionCode) {
     return res.send("Function code is empty");
