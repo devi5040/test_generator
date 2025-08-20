@@ -11,7 +11,7 @@ exports.generateUnitTest = async (req, res, next) => {
   const prompt = `You are an expert JavaScript developer and Jest testing engineer. 
 I will provide a function or module. Generate a **complete Jest test suite** in a robust, error-proof style:
 
-1. Mock all dependencies using \`jest.mock()\` at the top level outside any function's describe.
+1. Mock all external dependencies using \`jest.mock()\` at the top level outside any function's describe(Note: You need to mock all the functionalities of the external dependencies for example db retrieval functions, aws s3 configs, etc).
 2. then import the function or provide a placeholder to do that.
 3. Start describing the tests for functions one by one using describe().
 4. Use \`beforeAll\`, \`beforeEach\`, \`afterAll\` to set up and clean environment variables, mocks, or any global state.
