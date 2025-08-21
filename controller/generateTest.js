@@ -27,7 +27,7 @@ I will provide a function or module. Generate a **complete Jest test suite** in 
 10. Restore any spies or mocks after usage.
 11. Note that we are throwing errors using throw statement in the code so write the tests accordingly(e.g: make sure every Jest test uses await expect(...).rejects)
 Remember to generate tests for all edge cases applicable.
-Before sending back the response please verify the test file and rectify if any error has been occured. Take your time to verify the response before sending it to the user. The response should be error free and easy to use directly.
+Before sending back the response please verify the test file and rectify if any error has been occured. Maku sure instruction 11 is verified because i am throwing errors in the function code so you should handle those tests. Take your time to verify the response before sending it to the user. The response should be error free and easy to use directly.
 Here is the code to generate test:${functionCode}.
 
 Example test file:
